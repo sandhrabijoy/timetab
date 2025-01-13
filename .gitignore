@@ -1,0 +1,9 @@
+
+# Ignore all text files
+*.txt
+
+# Ignore logs
+*.log
+
+# Ignore a folder
+node_modules/
