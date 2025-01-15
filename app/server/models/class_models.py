@@ -41,3 +41,13 @@ class UpdatedClassSchema(BaseModel):
                 "updated_by": "editor",
             }
         }
+#define the response messaage to be obtained
+def ResponseModel(data, message):
+    return {
+        "data": [data],
+        "code": 200,
+        "message": message,
+    }
+#Define the error message to be obtained
+def ErrorResponseModel(error, code, message):
+    return {"error": error, "code": code, "message": message}
