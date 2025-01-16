@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.server.database import SessionLocal,get_db
+from app.server.database.config import get_db
 from app.server.models.models import ClassSchema, UpdatedClassSchema
 from app.server.database.class_database import (
     add_class,

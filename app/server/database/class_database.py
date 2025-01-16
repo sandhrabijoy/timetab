@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 from datetime import datetime
-from config import Base,SessionLocal
+Base=declarative_base()
 
 # ORM Model for Classes
 class Class(Base):

@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime
-from sqlalchemy.orm import sessionmaker, declarative_base, Session
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Database URL
 URL_DATABASE = 'postgresql://postgres:Sandhra11$@localhost:5432/TimeTAB'
