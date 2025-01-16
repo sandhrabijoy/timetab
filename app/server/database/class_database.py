@@ -1,14 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 from datetime import datetime
-
-# Database URL
-URL_DATABASE = 'postgresql://postgres:Sandhra11$@localhost:5432/TimeTAB'
-
-# SQLAlchemy engine and session
-engine = create_engine(URL_DATABASE)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+from config import Base,SessionLocal
 
 # ORM Model for Classes
 class Class(Base):
@@ -82,43 +75,4 @@ def delete_class(db: Session, id: int):
         return True
     return False
 
-# Database Dependency for FastAPI or Other Frameworks
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
-# Example Usage
-if __name__ == "__main__":
-    # Initialize the database (for first-time setup)
-    Base.metadata.create_all(bind=engine)
-
-    with SessionLocal() as db:
-        # Example: Add a new class
-        new_class_data = {
-            "name": "Math",
-            "created_at": datetime(),
-            "created_by": "admin",
-            "updated_at": datetime(),
-            "updated_by": "admin"
-        }
-        added_class = add_class(db, new_class_data)
-        print("Added Class:", added_class)
-
-        # Example: Retrieve all classes
-        all_classes = retrieve_classes(db)
-        print("All Classes:", all_classes)
-
-        # Example: Update a class
-        updated_class = update_class(db, added_class["id"], {"block": "B", "updated_by": "admin2"})
-        print("Updated Class:", updated_class)
-
-        # Example: Retrieve a specific class by ID
-        retrieved_class = retrieve_class(db, added_class["id"])
-        print("Retrieved Class:", retrieved_class)
-
-        # Example: Delete a class
-        is_deleted = delete_class(db, added_class["id"])
-        print("Deleted Class:", is_deleted)
