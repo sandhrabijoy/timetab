@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body, Depends, HTTPException
 from sqlalchemy.orm import Session
-from app.server.database import SessionLocal
+from app.server.database import SessionLocal,get_db
 from app.server.models.models import ClassSchema, UpdatedClassSchema
 from app.server.database.class_database import (
     add_class,
@@ -12,13 +12,6 @@ from app.server.database.class_database import (
 
 router = APIRouter()
 
-# Dependency to get a database session
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
 
 @router.post("/", response_description="Class data added into the database")
 def add_class_data(class_data: ClassSchema = Body(...), db: Session = Depends(get_db)):
