@@ -4,7 +4,9 @@ from app.server.database.config import Base,engine
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
 
-#from server.routes.class_routes import router as ClassRouter 
+from server.routes.class_routes import router as ClassRouter 
+
+app.include_router(ClassRouter,tags=["Class"],prefix="/class")
 
 #db_dependency=Annotated[Session,Depends(get_db)]
 
