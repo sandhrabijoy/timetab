@@ -1,21 +1,16 @@
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
 from typing import List, Annotated
+from app.server.models import models
+from sqlalchemy import create_engine
+from app.server.database.config import Base,SessionLocal,engine
+from sqlalchemy.orm import sessionmaker, declarative_base, Session
 
-
-from server.routes.class_routes import router as ClassRouter 
-#from server.database.class_database import router as 
+#from server.routes.class_routes import router as ClassRouter 
+Base=declarative_base()
  
 app = FastAPI()
-models.Base.metadata.create_all(bind=engine)
-
-
-
-
-if __name__ == "__main__":
-    # Initialize the database (for first-time setup)
-    Base.metadata.create_all(bind=engine)
-
+Base.metadata.create_all(bind=engine)
   
 # Database Dependency for FastAPI or Other Frameworks
 def get_db():
@@ -25,7 +20,7 @@ def get_db():
     finally:
         db.close()
 
-db_dependency=Annotated[Session,Depends(get_db)]
+#db_dependency=Annotated[Session,Depends(get_db)]
 
 @app.get("/", tags=["Root"])
 async def read_root():
