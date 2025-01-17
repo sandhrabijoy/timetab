@@ -6,7 +6,7 @@ from app.server.models.models import Class
 
 
 # Helper Function to Convert ORM Object to Dictionary
-def class_helper(cls:Class) -> dict:
+def class_helper(cls) -> dict:
     return {
         "id": cls.id,
         "name": cls.name,
@@ -21,8 +21,7 @@ def class_helper(cls:Class) -> dict:
 # Retrieve All Classes
 def retrieve_classes(db: Session):
     classes = db.query(Class).all()
-    return classes
-    # return [class_helper(cls) for cls in classes]
+    return [class_helper(cls) for cls in classes]
 
 
 # Retrieve a Class by ID

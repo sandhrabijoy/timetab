@@ -22,8 +22,7 @@ def add_class_data(class_data: ClassSchema = Body(...), db: Session = Depends(ge
 def get_classes(db:Session = Depends(get_db)):
     classes = retrieve_classes(db)
     if classes:
-        return classes 
-        # return {"data": classes, "message": "Class data retrieved successfully"}
+        return {"data": classes, "message": "Class data retrieved successfully"}
     return {"data": [], "message": "Empty list returned"}      
 
 @router.get("/{id}", response_description="Class data retrieved")
