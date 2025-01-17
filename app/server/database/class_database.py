@@ -1,22 +1,12 @@
-from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime
+
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 from datetime import datetime
-Base=declarative_base()
 
-# ORM Model for Classes
-class Class(Base):
-    __tablename__ = "classes"
-
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    created_by = Column(String, nullable=False)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
-    updated_by = Column(String, nullable=False)
+from app.server.models.models import Class
 
 
 # Helper Function to Convert ORM Object to Dictionary
-def class_helper(cls) -> dict:
+def class_helper(cls:Class) -> dict:
     return {
         "id": cls.id,
         "name": cls.name,
@@ -31,7 +21,9 @@ def class_helper(cls) -> dict:
 # Retrieve All Classes
 def retrieve_classes(db: Session):
     classes = db.query(Class).all()
-    return [class_helper(cls) for cls in classes]
+    return classes
+    # return [class_helper(cls) for cls in classes]
+
 
 # Retrieve a Class by ID
 def retrieve_class(db: Session, id: int):

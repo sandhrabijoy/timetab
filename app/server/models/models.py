@@ -1,6 +1,20 @@
 from typing import Optional
-from datetime import date
+from datetime import datetime,date
 from pydantic import BaseModel, Field
+from sqlalchemy.orm import sessionmaker, declarative_base, Session
+from sqlalchemy import create_engine, Column, Integer, String, Boolean, DateTime
+Base = declarative_base()
+
+# ORM Model for Classes
+class Class(Base):
+    __tablename__ = "classes"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    created_by = Column(String, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+    updated_by = Column(String, nullable=False)
 
 # Creation of initial class structure
 class ClassSchema(BaseModel):
@@ -12,15 +26,7 @@ class ClassSchema(BaseModel):
 
     # Adding schema example
     class Config:
-        schema_extra = {
-            "example": {
-                "name": "Computer Science",
-                "created_at": "2022-12-27",
-                "created_by": "admin",
-                "updated_at": "2022-12-27",
-                "updated_by": "admin",
-            }
-        }
+        orm_mode = True
 
 # Update schema for PUT operation
 class UpdatedClassSchema(BaseModel):
@@ -32,15 +38,8 @@ class UpdatedClassSchema(BaseModel):
 
     # Adding schema example
     class Config:
-        schema_extra = {
-            "example": {
-                "name": "Data Science",
-                "created_at": "2023-01-01",
-                "created_by": "editor",
-                "updated_at": "2023-01-10",
-                "updated_by": "editor",
-            }
-        }
+        orm_mode = True
+        
 #define the response messaage to be obtained
 def ResponseModel(data, message):
     return {
