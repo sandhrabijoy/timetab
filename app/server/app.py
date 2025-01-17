@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends
 from app.server.database.config import Base,engine
-from app.server.models import models
+# from app.server.models import models
 
 app = FastAPI()
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 from app.server.routes.class_routes import router as ClassRouter 
 
