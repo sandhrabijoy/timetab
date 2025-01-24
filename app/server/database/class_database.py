@@ -48,7 +48,7 @@ def update_class(db: Session, id: int, class_data: dict):
             return None
         for key, value in class_data.items():
             setattr(class_to_update, key, value)
-        class_to_update.updated_at = datetime.utcnow()  # Explicitly set update time
+        class_to_update.updated_at = datetime.utcnow()  
         db.commit()
         db.refresh(class_to_update)
         return class_helper(class_to_update)
