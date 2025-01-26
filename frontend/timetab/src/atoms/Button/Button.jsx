@@ -1,8 +1,11 @@
+import React from 'react'
 const Button=()=>{
-  return(  <div>
-        <Button>
-            SUBMIT
-        </Button>
-    </div>)
- }
- export default Button
+    return(
+        <div>
+            <button>
+                SUBMIT
+            </button>
+        </div>
+    )
+} 
+export default Button
