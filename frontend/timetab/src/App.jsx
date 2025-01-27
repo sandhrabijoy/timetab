@@ -7,6 +7,7 @@ import Smallhead from './atoms/Smallhead/Smallhead';
 import Navigation from './atoms/Navigation/Navigation';
 import Image from './atoms/Image/image';
 import Descr from './atoms/Descr/Descr';
+import BasicTable from './atoms/Table/Table';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,24 +15,19 @@ function App() {
   return (
     <>
       
-      <h1>TimeTAB</h1>
+      <div className="App">
+          <Navigation />
+          <Image/>
+          <Descr/>
+          <Heading className="big-heading"></Heading>
+          <Smallhead className= "b-heading"/>         
+          <div className='bar'>
+            <Dropdown/>
+            <Button className="submit-button" text="SUBMIT"/>
+          </div>
+          <BasicTable/>
+        </div>
       
-     
-      <div className='bar'>
-        <Dropdown/>
-        <Button/>
-        
-        <Heading className="big-heading"></Heading>
-        <Heading className="small-heading"></Heading>
-        <Smallhead className="b-heading"></Smallhead>
-        <Smallhead className="s-heading"></Smallhead>
-        <Descr/>
-        <Image/>
-        <Navigation/>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

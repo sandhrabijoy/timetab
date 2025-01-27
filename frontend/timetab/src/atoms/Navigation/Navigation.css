@@ -4,4 +4,6 @@
 .navbar-style{
     display:flex;
     justify-content:end;
+    align-items: center;
+    position: static;
 }

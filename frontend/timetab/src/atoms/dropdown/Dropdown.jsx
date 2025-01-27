@@ -14,7 +14,7 @@ const Dropdown = () => {
       <FormControl fullWidth>
       <InputLabel id="demo-simple-select-label">Select Class</InputLabel>
         <Select 
-        sx={{fontWeight:"regular",borderRadius:"20",height:"53px",width:"563px",backgroundColor:'#BACD9B',fontFamily: 'Inter',fontSize:30, '&:before': {borderBottom: 'none'} }}
+        sx={{fontWeight:"regular",border:"0",height:"53px",width:"563px",backgroundColor:'#BACD9B',fontFamily: 'Inter',fontSize:30, '&:before': {borderBottom: 'none'} }}
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         
