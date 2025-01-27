@@ -23,7 +23,7 @@ function App() {
           <Smallhead className= "b-heading"/>         
           <div className='bar'>
             <Dropdown/>
-            <Button className="submit-button" text="SUBMIT"/>
+            <Button className="button-style" text="SUBMIT"/>
           </div>
           <BasicTable/>
         </div>

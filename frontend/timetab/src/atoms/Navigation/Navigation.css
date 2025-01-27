@@ -1,9 +1,16 @@
 .home-contact{
     display:flex;
 }
+.navbar-space{
+    width: 300px;
+    }
 .navbar-style{
     display:flex;
     justify-content:end;
     align-items: center;
-    position: static;
+ 
+}
+.navbar-buttons {
+    display: flex;
+    margin-left: 500px;
 }

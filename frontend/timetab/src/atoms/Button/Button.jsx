@@ -3,12 +3,16 @@ import "./Button.css"
 const Button=(props)=>{
     return(
         <div>
-            <button className='button-style'>
+            {/* <button className='button-style'>
                 SUBMIT
-            </button>
-            <button className={props.className}>
+            </button> */}
+            {/* <button className={props.className}>
                 {props.text}
-            </button>
+            </button> */}
+             <div>
+      <button className={props.className}onClick={props.Onclick} >{props.text}</button>
+    </div>
+            
         </div>
     )
 } 
