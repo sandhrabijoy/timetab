@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+.heading-style{
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgb(38, 50, 40);
+    letter-spacing:50px;
+}
