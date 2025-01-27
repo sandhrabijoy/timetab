@@ -1,7 +1,7 @@
 import React from 'react';
 import "./image.css";
 import leftimage from '../../images/leftimage.webp';
-import rightimage from '../../images/rightimage.png';
+import rightimage from '../../images/rightimage.jpg';
 
 const Image = (props) => {
   return (
