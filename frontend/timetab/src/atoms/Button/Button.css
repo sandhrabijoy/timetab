@@ -9,5 +9,17 @@
     font-weight: bold;
     font-size: 30px;
     letter-spacing: 3;
+    cursor:pointer;
    
+}
+.home-button{
+    cursor:pointer;
+    color:#FFFFFF;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Metrophobic', sans-serif;
+    font-weight:normal;
+    background-color:  "#2A4704";
+    border: 0cm;
+
 }

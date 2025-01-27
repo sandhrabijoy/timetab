@@ -1,0 +1,7 @@
+.home-contact{
+    display:flex;
+}
+.navbar-style{
+    display:flex;
+    justify-content:end;
+}

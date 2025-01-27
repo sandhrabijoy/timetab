@@ -12,7 +12,7 @@ const Dropdown = () => {
       <Box sx={{borderBottom:0}}>
      
       <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Select Farmer Company</InputLabel>
+      <InputLabel id="demo-simple-select-label">Select Class</InputLabel>
         <Select 
         sx={{fontWeight:"regular",borderRadius:"20",height:"53px",width:"563px",backgroundColor:'#BACD9B',fontFamily: 'Inter',fontSize:30, '&:before': {borderBottom: 'none'} }}
         labelId="demo-simple-select-label"
