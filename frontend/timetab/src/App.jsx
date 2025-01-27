@@ -25,6 +25,9 @@ function App() {
         <Heading className="small-heading"></Heading>
         <Smallhead className="b-heading"></Smallhead>
         <Smallhead className="s-heading"></Smallhead>
+        <Descr/>
+        <Image/>
+        <Navigation/>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
