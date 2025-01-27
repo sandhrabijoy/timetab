@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
+.b-heading{
+    font-family: 'Metrophobic', sans-serif;
+    font-weight:normal;
+    font-size: 50px;
+    color: #3A483E;
+   
+}
+.s-heading{
+    font-family: 'Metrophobic', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
+    color: #F4F4E1;
+    
+}
