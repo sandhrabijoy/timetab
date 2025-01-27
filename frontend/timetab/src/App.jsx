@@ -13,13 +13,13 @@ function App() {
       
       <h1>TimeTAB</h1>
       
-      <div className="App">
-          <Button />
-        </div>
+     
       <div className='bar'>
         <Dropdown/>
         <Button/>
-        <Heading/>
+        
+        <Heading className="big-heading"></Heading>
+        <Heading className="small-heading"></Heading>
               </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
