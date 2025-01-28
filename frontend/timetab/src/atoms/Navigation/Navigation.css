@@ -1,5 +1,8 @@
 .home-contact{
     display:flex;
+    padding-left: 59%;
+    justify-content: space-between;
+    width: 15%;
 }
 .navbar-space{
     width: 300px;
