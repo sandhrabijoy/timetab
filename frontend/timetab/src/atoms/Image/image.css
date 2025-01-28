@@ -1,8 +1,32 @@
-.left-image{
-    width: 25px;
-    height:40px;
+.left-image {
+    height: auto;
+    display: block;
+    margin-left: -100px; 
+    clip-path: inset(100px 0 50px 0);
+    object-fit: cover;
 }
-.right-image{
-    width:20px;
-    height:40px;
+
+.right-image {
+    max-width: 30%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    clip-path: inset(0px 0px 32px 0px);
+    margin-right: -150px;
+}
+
+.image-container {
+    display: flex;
+    margin-top: 60px;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    /* padding-bottom: 0; */
+    border: 2px solid red;
+    object-fit: cover;
+}
+
+.image-container img{
+    width:300px;
 }

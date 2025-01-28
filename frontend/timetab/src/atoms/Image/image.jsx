@@ -2,6 +2,7 @@ import React from 'react';
 import "./image.css";
 import leftimage from '../../images/leftimage.webp';
 import rightimage from '../../images/rightimage.jpg';
+// import Descr from './at';
 
 const Image = (props) => {
   return (
