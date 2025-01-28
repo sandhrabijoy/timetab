@@ -1,9 +1,21 @@
 from fastapi import FastAPI, HTTPException, Depends
 from app.server.database.config import Base,engine
-# from app.server.models import models
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
+
+origins=[
+"http://localhost:3000",
+"http://localhost:8000",
+]
+app.add_middleware(
+CORSMiddleware,
+allow_origins=["*"],
+allow_credentials=True,
+allow_methods=["*"],  
+allow_headers=["*"],  
+)
 
 from app.server.routes.class_routes import router as ClassRouter 
 
