@@ -16,7 +16,7 @@ export default function BasicTable(){
     return(
         <TableContainer component={Paper}>
             <Table sx={{minWidth:650}} aria-label='simple table'>
-                <TableHead>
+                <TableHead sx={{ backgroundColor: '#F4F4E1' }}>
                     <TableRow>
                         <TableCell>
                             ID
@@ -34,7 +34,7 @@ export default function BasicTable(){
           {rows.map((row) => (
             <TableRow
               key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } , backgroundColor: '#F4F4E1', }}
             >
               <TableCell component="th" scope="row">
                 {row.id}
