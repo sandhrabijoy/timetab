@@ -18,7 +18,7 @@ function App() {
       <div className="App">
         <Navigation />
         <Image />
-        <Descr />
+        {/* <Descr /> */}
         
         <Heading className="big-heading" />
 
