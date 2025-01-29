@@ -6,7 +6,9 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-const Dropdown = () => {
+
+const Dropdown = ({options}) => {
+  console.log('from dropdown',options)
   return (
     <div>
       <Box sx={{borderBottom:0}}>
@@ -20,6 +22,15 @@ const Dropdown = () => {
         
         label="Select Farmer Company"
         >
+         {options.length > 0 ? (
+          options.map((option) => (
+            <MenuItem key={option.id} value={option.id}>
+              {option.name}
+            </MenuItem>
+          ))
+        ) : (
+          <MenuItem disabled>No options available</MenuItem>
+        )} 
             
         </Select>
         </FormControl>
