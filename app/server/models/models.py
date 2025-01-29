@@ -15,6 +15,7 @@ class Class(Base):
     created_by = Column(String, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
     updated_by = Column(String, nullable=False)
+    teachername= Column(String, nullable=False)
 
 # Creation of initial class structure
 class ClassSchema(BaseModel):
@@ -23,6 +24,7 @@ class ClassSchema(BaseModel):
     created_by: str
     updated_at: date
     updated_by: str
+    teachername:str
 
     # Adding schema example
     class Config:
@@ -35,6 +37,7 @@ class UpdatedClassSchema(BaseModel):
     created_by: Optional[str]
     updated_at: Optional[date]
     updated_by: Optional[str]
+    teachername:Optional[str]
 
     # Adding schema example
     class Config:

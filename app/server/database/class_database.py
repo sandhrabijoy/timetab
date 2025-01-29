@@ -13,7 +13,8 @@ def class_helper(cls) -> dict:
         "created_at": cls.created_at,
         "created_by": cls.created_by,
         "updated_at": cls.updated_at,
-        "updated_by": cls.updated_by
+        "updated_by": cls.updated_by,
+        "teachername":cls.teachername
     }
 
 # CRUD Functions

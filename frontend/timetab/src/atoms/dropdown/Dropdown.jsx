@@ -7,7 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 
-const Dropdown = ({options}) => {
+const Dropdown = ({options,setidStore}) => {
   console.log('from dropdown',options)
   return (
     <div>
@@ -16,10 +16,17 @@ const Dropdown = ({options}) => {
       <FormControl fullWidth>
       <InputLabel id="demo-simple-select-label">Select Class</InputLabel>
         <Select 
+        
         sx={{fontWeight:"regular",border:"0",height:"53px",width:"563px",backgroundColor:'#BACD9B',fontFamily: 'Inter',fontSize:30, '&:before': {borderBottom: 'none'} }}
         labelId="demo-simple-select-label"
         id="demo-simple-select"
+        onChange={(e) => {
+          const storedid= e.target.value;
+          setidStore(storedid); 
+          console.log(storedid)
         
+          //  field.onChange(e);  
+        }}
         label="Select Farmer Company"
         >
          {options.length > 0 ? (

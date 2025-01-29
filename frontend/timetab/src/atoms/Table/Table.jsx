@@ -2,14 +2,14 @@ import * as React from 'react';
 import Table from '@mui/material/Table';
 import { TableBody,TableContainer,TableHead,TableRow,Paper,TableCell } from '@mui/material';
 
-function createData(id,Name,active){
-    return {id,Name,active};
+function createData(id,name,teachername){
+    return {id,name,teachername};
 }
 
 const rows=[
-    createData(1,'ABC','Active'),
-    createData(2,'PQR','Active'),
-    createData(3,'XYZ','Non-Active')
+    createData(1,'ABC','Susan'),
+    createData(2,'PQR','alexa'),
+    createData(3,'XYZ','Mathew')
 ]
 
 export default function BasicTable(){
@@ -25,7 +25,7 @@ export default function BasicTable(){
                            CLASS NAME
                         </TableCell>
                         <TableCell align='right'>
-                            ACTIVE&nbsp;
+                            TEACHER NAME&nbsp;
                         </TableCell>
                     </TableRow>
                     
@@ -40,7 +40,7 @@ export default function BasicTable(){
                 {row.id}
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.active}</TableCell>
+              <TableCell align="right">{row.teachername}</TableCell>
             
             </TableRow>
           ))}

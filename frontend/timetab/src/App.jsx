@@ -11,6 +11,7 @@ import axios from 'axios';
 
 function App() {
   const[classOptions,setClassOptions]=useState([]);
+  const[idStore,setIdStore]=useState(null);
 
   async function getdata() {
     try {
@@ -34,22 +35,29 @@ function App() {
   useEffect(()=>{
     
     getdata()
-    // axios
-    //   .get("http://127.0.0.1:8000/class/")
-    //   .then((response) => {
-    //     console.log(response)
-    //     console.log(response.data);
-    //     setClassOptions(response.data);
-    //     console.log(farmerOptions)
-    //   })
-    //   .catch((error) => {
-    //     console.error("There was an error!", error);
-    //   });
+   
   }, []); 
 
-// useEffect(()=>{
-// console.log(classOptions);
-// },[classOptions]);
+  async function handleOnclick() {
+    try {
+      const result = await fetch(`http://127.0.0.1:8000/class/${idStore}`);
+      
+      if (!result.ok) {
+        throw new Error("No output");
+      }
+      
+      const data = await result.json(); 
+      console.log(data); 
+      // const datas = Array.isArray(data) ? data[0] : [];
+      const newdata = data.data; 
+      console.log(newdata); 
+      setIdStore(newdata)
+  
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
 
 const handleSubmit=(e)=>{
   e.preventDefaultt();
@@ -69,7 +77,7 @@ const handleSubmit=(e)=>{
         <Smallhead className="b-heading" />
 
         <div className='bar'>
-          <Dropdown options={classOptions}/>
+          <Dropdown options={classOptions} setidStore={setIdStore}/>
           <Button className="button-style" text="SUBMIT" onClick={handleOnclick}/>
         </div>
 
