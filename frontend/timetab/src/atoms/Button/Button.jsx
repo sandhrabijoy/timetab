@@ -10,7 +10,7 @@ const Button=(props)=>{
                 {props.text}
             </button> */}
              <div>
-      <button className={props.className}onClick={props.Onclick} >{props.text}</button>
+      <button className={props.className} onClick={props.onClick} >{props.text}</button>
     </div>
             
         </div>

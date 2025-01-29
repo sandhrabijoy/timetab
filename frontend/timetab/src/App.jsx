@@ -7,12 +7,18 @@ import Smallhead from './atoms/Smallhead/Smallhead';
 import Navigation from './atoms/Navigation/Navigation';
 import Image from './atoms/Image/image';
 import BasicTable from './atoms/Table/Table';
-import axios from 'axios';
+
 
 function App() {
   const[classOptions,setClassOptions]=useState([]);
   const[idStore,setIdStore]=useState(null);
+  const [fetchedData, setFetchedData] = useState([]);
 
+  // const handleSubmit=(e)=>{
+  //   e.preventDefault();
+  //   console.log("ButtonClicked");
+  
+  // }
   async function getdata() {
     try {
       const result = await fetch(`http://127.0.0.1:8000/class`);
@@ -32,10 +38,8 @@ function App() {
       console.error("Error fetching data:", error);
     }
   }
-  useEffect(()=>{
-    
-    getdata()
-   
+  useEffect(()=>{  
+    getdata() 
   }, []); 
 
   async function handleOnclick() {
@@ -43,28 +47,22 @@ function App() {
       const result = await fetch(`http://127.0.0.1:8000/class/${idStore}`);
       
       if (!result.ok) {
-        throw new Error("No output");
+        throw new Error("Please Select a class first");
       }
       
       const data = await result.json(); 
-      console.log(data); 
+      console.log("hi",data); 
       // const datas = Array.isArray(data) ? data[0] : [];
       const newdata = data.data; 
-      console.log(newdata); 
-      setIdStore(newdata)
+      console.log('dataaa',newdata); 
+      setFetchedData(newdata)
+      console.log('val',fetchedData)
   
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
-
-
-const handleSubmit=(e)=>{
-  e.preventDefaultt();
-  console.log("ButtonClicked");
-
-}
-
+  
   return (
     <>
       <div className="App">
@@ -77,11 +75,11 @@ const handleSubmit=(e)=>{
         <Smallhead className="b-heading" />
 
         <div className='bar'>
-          <Dropdown options={classOptions} setidStore={setIdStore}/>
+          <Dropdown options={classOptions} setidStore={setIdStore} idStore={idStore}/>
           <Button className="button-style" text="SUBMIT" onClick={handleOnclick}/>
         </div>
 
-        <BasicTable />
+        <BasicTable rows={fetchedData} />
 
       </div>
     </>

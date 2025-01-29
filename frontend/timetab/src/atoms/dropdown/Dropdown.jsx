@@ -1,4 +1,3 @@
-
 import React from 'react'
 import"./Dropdown.css"
 import Select from '@mui/material/Select';
@@ -7,7 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 
-const Dropdown = ({options,setidStore}) => {
+const Dropdown = ({options,setidStore,idStore}) => {
   console.log('from dropdown',options)
   return (
     <div>
@@ -16,7 +15,7 @@ const Dropdown = ({options,setidStore}) => {
       <FormControl fullWidth>
       <InputLabel id="demo-simple-select-label">Select Class</InputLabel>
         <Select 
-        
+        value={idStore || ''}  
         sx={{fontWeight:"regular",border:"0",height:"53px",width:"563px",backgroundColor:'#BACD9B',fontFamily: 'Inter',fontSize:30, '&:before': {borderBottom: 'none'} }}
         labelId="demo-simple-select-label"
         id="demo-simple-select"
@@ -24,13 +23,12 @@ const Dropdown = ({options,setidStore}) => {
           const storedid= e.target.value;
           setidStore(storedid); 
           console.log(storedid)
-        
-          //  field.onChange(e);  
+          // field.onChange(e);  
         }}
         label="Select Farmer Company"
         >
          {options.length > 0 ? (
-          options.map((option) => (
+          options[0].map((option) => (
             <MenuItem key={option.id} value={option.id}>
               {option.name}
             </MenuItem>

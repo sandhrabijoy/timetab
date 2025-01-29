@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Body, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.server.database.config import get_db,db_dependency
-from app.server.models.models import ClassSchema, UpdatedClassSchema
+from app.server.models.models import ClassSchema, UpdatedClassSchema,ResponseModel
 from app.server.database.class_database import (
     add_class,
     delete_class,
@@ -22,7 +22,7 @@ def add_class_data(class_data: ClassSchema = Body(...), db: Session = Depends(ge
 def get_classes(db:Session = Depends(get_db)):
     classes = retrieve_classes(db)
     if classes:
-        return {"data": classes, "message": "Class data retrieved successfully"}
+        return ResponseModel(classes,'response obtained')
     return {"data": [], "message": "Empty list returned"}      
 
 @router.get("/{id}", response_description="Class data retrieved")
@@ -30,7 +30,7 @@ def get_class_data(id: int, db: Session = Depends(get_db)):
     class_data = retrieve_class(db, id)
     if not class_data:
         raise HTTPException(status_code=404, detail="Class does not exist")
-    return {"data": class_data, "message": "Class data retrieved successfully"}
+    return  ResponseModel(class_data,"Class data retrieved successfully")
 
 @router.put("/{id}", response_description="Class data updated")
 def update_class_data(
