@@ -56,7 +56,7 @@ function App() {
       const newdata = data.data; 
       console.log('dataaa',newdata); 
       setFetchedData(newdata)
-      console.log('val',fetchedData)
+      console.log('val',fetchedData);
   
     } catch (error) {
       console.error("Error fetching data:", error);
