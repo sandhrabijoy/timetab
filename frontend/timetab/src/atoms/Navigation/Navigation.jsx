@@ -19,8 +19,6 @@ export default function Navigationbar(){
         <Box >
             <AppBar position="static" >
                 <Toolbar sx={{flexGrow:1, backgroundColor: "#2A4704"}}>
-                    
-                        
                         <Typography variant="h6" component="div" >
                             <Heading className="small-heading"/>
                             <Smallhead className="s-heading"/>
